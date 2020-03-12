@@ -1,5 +1,8 @@
 'use strict';
+import modalHelper from "./modules/modal/modal-helper";
 
-import test from './modules/test';
+document.addEventListener('DOMContentLoaded', () => {
+    modalHelper.actionModal();
+});
 
-test();
+
