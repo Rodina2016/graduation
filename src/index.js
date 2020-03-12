@@ -4,11 +4,10 @@ import showTop from "./modules/top/top";
 import slider from "./modules/slider/slider";
 
 document.addEventListener('DOMContentLoaded', () => {
+    const mainSlider = document.querySelector('.main-slider');
     modalHelper.actionModal();
     showTop();
-
-   const mainSlider = document.querySelector('.main-slider');
-   slider(mainSlider);
+    slider(mainSlider);
 });
 
 
