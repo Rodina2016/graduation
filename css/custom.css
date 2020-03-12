@@ -1,0 +1,12 @@
+.main-slider .slide {
+    position: absolute;
+}
+
+.main-slider .slide {
+    opacity: 0;
+    transition: opacity .5s ease-in;
+}
+
+.slide.active {
+    opacity: 1;
+}
