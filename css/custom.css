@@ -23,3 +23,70 @@
 header .head .club-select .clubs-list ul.show {
     display: block;
 }
+
+.gallery-slider {
+    position: relative;
+}
+
+.gallery-slider .slide {
+    display: none;
+    opacity: 0;
+}
+
+.gallery-slider .slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.dots {
+    position: absolute;
+    left: -50%;
+    transform: translateX(50%);
+    width: 100%;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 30px;
+    height: 4px;
+    margin: 0 8px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.dot-active {
+    background-color: #ffd11a;
+}
+
+.arrows {
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.arrow-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffd11a;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.arrow-right {
+    background-image: url("../images/arrow-right.png");
+}
+
+.arrow-left {
+    background-image: url("../images/arrow-left.png");
+}
+
+.gallery-slider .arrows {
+    top: 50%;
+    transform: translateY(-50%);
+}
