@@ -2,7 +2,7 @@
 import modalHelper from "./modules/modal/modal-helper";
 import showTop from "./modules/top/top";
 import slider from "./modules/slider/slider";
-import actionMobMenu from "./modules/burger-menu/burger-menu";
+import mobMenu from "./modules/burger-menu/burger-menu";
 import hidePresent from "./modules/present/present";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modalHelper.actionModal();
     showTop();
     slider(mainSlider);
-    actionMobMenu();
+    mobMenu.actionMobMenu();
+    mobMenu.stickMenu();
     hidePresent();
 });
 
