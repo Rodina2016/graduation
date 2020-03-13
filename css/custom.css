@@ -10,3 +10,7 @@
 .slide.active {
     opacity: 1;
 }
+
+.popup-menu.show {
+    display: flex;
+}
