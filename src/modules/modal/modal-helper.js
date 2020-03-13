@@ -1,9 +1,7 @@
 class modalHelper {
     static actionModal() {
         document.addEventListener('click', (event) => {
-            event.preventDefault();
             const target = event.target;
-            //console.log(target);
             if(target.dataset.popup) {
                 const id = target.dataset.popup;
                 document.querySelector(id).style.cssText = 'display: flex';

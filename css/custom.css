@@ -19,3 +19,7 @@
     position: fixed;
     width: 100%;
 }
+
+header .head .club-select .clubs-list ul.show {
+    display: block;
+}

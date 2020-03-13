@@ -1,14 +1,15 @@
 const showTop = () => {
     const totop = document.getElementById('totop'),
-        clubs = document.getElementById('clubs');
+        headSlider = document.querySelector('.head-slider'),
+        headerSliderHeight = headSlider.clientHeight;
     totop.style.cssText = 'display: none';
 
-    if(clubs.getBoundingClientRect().y < 0) {
+    if(headSlider.getBoundingClientRect().y < -headerSliderHeight) {
         totop.style.cssText = '';
     }
 
     document.addEventListener('scroll', () => {
-        if(clubs.getBoundingClientRect().y < 0) {
+        if(headSlider.getBoundingClientRect().y < -headerSliderHeight) {
             totop.style.cssText = '';
         } else {
             totop.style.cssText = 'display: none';
