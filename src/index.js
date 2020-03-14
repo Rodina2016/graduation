@@ -6,7 +6,7 @@ import mobMenu from "./modules/burger-menu/burger-menu";
 import hidePresent from "./modules/present/present";
 import actionSubMenu from "./modules/sub-menu/sub-menu";
 import SliderCarousel from "./modules/slider/slider-carousel";
-import MaskPhone from "./modules/phone-mask/phone-mask";
+import maskPhone from "./modules/phone-mask/phone-mask";
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainSlider = document.querySelector('.main-slider'),
@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         next: "#slide-right",
         slidesToShow: 5,
     });
-
     carousel.init();
 
-    const phoneMask = new MaskPhone(allInputPhone[0], '+380-XXX-XXX-XX-XXXX');
-    phoneMask.init();
-});
+    allInputPhone.forEach(elem => {
+        maskPhone(elem);
+    });
+})
 
 
