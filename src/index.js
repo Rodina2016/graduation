@@ -7,11 +7,16 @@ import hidePresent from "./modules/present/present";
 import actionSubMenu from "./modules/sub-menu/sub-menu";
 import SliderCarousel from "./modules/slider/slider-carousel";
 import maskPhone from "./modules/phone-mask/phone-mask";
+import checkText from "./modules/form/check-text";
+import sendForm from "./modules/form/send";
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainSlider = document.querySelector('.main-slider'),
         gallery = document.getElementById('gallery').querySelector('.gallery-slider'),
-        allInputPhone = document.querySelectorAll('[type=tel]');
+        allInputPhone = document.querySelectorAll('[type=tel]'),
+        allInputText = document.querySelectorAll('[type=text]'),
+        allForms = document.querySelectorAll('form');
+
     modalHelper.actionModal();
     showTop();
     slider(mainSlider);
@@ -33,6 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     allInputPhone.forEach(elem => {
         maskPhone(elem);
     });
+
+    allInputText.forEach(item => {
+       checkText(item);
+    });
+
+    allForms.forEach(item => {
+        sendForm(item);
+    })
 })
 
 
