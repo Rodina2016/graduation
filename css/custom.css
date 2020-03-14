@@ -90,3 +90,37 @@ header .head .club-select .clubs-list ul.show {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.services-slider {
+    position: relative;
+    padding: 0;
+}
+
+.slide-btn {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 50px;
+    left: 0;
+}
+
+.slide-btn__item {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffd11a;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+
+.slide-btn__item--prev {
+    background-image: url("../images/arrow-left.png");
+}
+
+.slide-btn__item--next {
+    background-image: url("../images/arrow-right.png");
+}
