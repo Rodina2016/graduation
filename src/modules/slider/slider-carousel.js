@@ -1,5 +1,5 @@
 class SliderCarousel {
-    constructor({main, wrap, next, prev, position = 0, slidesToShow = 3}) {
+    constructor({main, wrap, next, prev, position = 2, slidesToShow = 3}) {
         this.main = document.querySelector(main);
         this.wrap = document.querySelector(wrap);
         this.slides = document.querySelector(wrap).children;
@@ -40,17 +40,19 @@ class SliderCarousel {
     }
 
     prevSlider() {
-        if(this.options.position > 0) {
-            --this.options.position;
-            this.wrap.style.transform = `translateX(${-this.options.position * this.options.widthSlide}%)`;
-        }
+        this.removeBeforeFirstElem();
+    }
+
+    removeBeforeFirstElem() {
+        this.wrap.insertBefore(this.slides[this.slides.length - 1], this.slides[0]);
+    }
+
+    removeAfterLastElem() {
+        this.wrap.appendChild(this.slides[0]);
     }
 
     nextSlider() {
-        if(this.options.position < this.slides.length - this.slidesToShow) {
-            ++this.options.position;
-            this.wrap.style.transform = `translateX(${-this.options.position * this.options.widthSlide}%)`;
-        }
+        this.removeAfterLastElem();
     }
 
     controlSlider() {
