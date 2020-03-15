@@ -1,16 +1,18 @@
  const actionSubMenu = () => {
     document.addEventListener('click', (event) => {
         const target = event.target;
-        console.log(target);
+        const clubsSelect = document.querySelector('.club-select');
+        const clubSelectOpened = document.querySelector('.club-select.opened');
 
-        if (target.parentNode.querySelector('ul') && !target.parentNode.querySelector('ul').classList.contains('show')
-            && target.closest('.club-select')
-            && target.parentNode.querySelector('ul')) {
-            target.parentNode.querySelector('ul').classList.add('show');
-        } else if (target.parentNode.querySelector('ul') &&
-            target.parentNode.querySelector('ul').classList.contains('show')
-            && !target.closest('.show')) {
-            target.parentNode.querySelector('ul').classList.remove('show');
+        if (target.closest('.club-select') && !target.closest('ul.show')) {
+
+            clubsSelect.classList.toggle('opened');
+            clubsSelect.querySelector('ul').classList.toggle('show');
+
+        } else if (clubSelectOpened && !target.closest('.club-select.opened')) {
+
+            clubsSelect.classList.toggle('opened');
+            clubSelectOpened.querySelector('ul').classList.toggle('show');
         }
     });
  };
