@@ -125,10 +125,28 @@ header .head .club-select .clubs-list ul.show {
     background-image: url("../images/arrow-right.png");
 }
 
+.popup form {
+    height: 100%;
+}
+
 .form-content .message-form{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 16px;
     font-size: 18px;
     color: #fff;
+}
+
+.popup .message-form {
+    max-width: 70%;
+    margin: 15px auto 0;
+}
+
+.form-content__wrap.hidden {
+    display: none;
+}
+
+.form-content__wrap.hidden ~ .message-form {
+    margin-top: 65px;
 }

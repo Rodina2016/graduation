@@ -1,5 +1,6 @@
 class modalHelper {
     static actionModal() {
+
         document.addEventListener('click', (event) => {
             const target = event.target;
             if(target.dataset.popup) {
@@ -12,6 +13,10 @@ class modalHelper {
 
             if(target.closest('.close-form') || target.matches('.overlay')) {
                 target.closest('.popup').style.cssText = '';
+                target.closest('.popup').querySelector('.form-content__wrap').classList.remove('hidden');
+                if(target.closest('.popup').querySelector('.message-form')) {
+                    target.closest('.popup').querySelector('.message-form').remove();
+                }
             }
 
         });
