@@ -11,10 +11,15 @@ class modalHelper {
                 document.querySelector(id).style.cssText = 'display: flex';
             }
 
-            if(target.closest('.close-form') || target.matches('.overlay')) {
+            if(target.closest('.close-form') || target.matches('.overlay') || target.matches('.btn.close-btn')) {
                 target.closest('.popup').style.cssText = '';
                 target.closest('.popup').querySelector('.form-content__wrap').classList.remove('hidden');
                 if(target.closest('.popup').querySelector('.message-form')) {
+                    target.closest('.popup').querySelector('.message-form').remove();
+                }
+
+                if(target.closest('.popup').querySelector('.message-form')) {
+                    //target.closest('.popup').querySelector('.form-content__wrap').style.display = 'block';
                     target.closest('.popup').querySelector('.message-form').remove();
                 }
             }

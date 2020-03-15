@@ -150,3 +150,7 @@ header .head .club-select .clubs-list ul.show {
 .form-content__wrap.hidden ~ .message-form {
     margin-top: 65px;
 }
+
+#thanks .message-form {
+    min-height: 60%;
+}
