@@ -21,16 +21,29 @@ class mobMenu {
         const topMenu = document.querySelector('.top-menu'),
             topMenuHeight = topMenu.clientHeight,
             headSlider = document.querySelector('.head-slider');
-        let windowWidth = document.documentElement.clientWidth;
-        document.addEventListener('scroll', () => {
+        let windowWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+             windowWidth = window.innerWidth;
+        });
+
+        const fixedMenu = () => {
             if (windowWidth < 768) {
                 if (headSlider.getBoundingClientRect().y < topMenuHeight) {
                     topMenu.classList.add('fixed');
                 } else if (headSlider.getBoundingClientRect().y > 0) {
                     topMenu.classList.remove('fixed');
                 }
+            } else {
+                topMenu.classList.remove('fixed');
             }
+        };
+
+        fixedMenu();
+
+        document.addEventListener('scroll', () => {
+            fixedMenu();
         });
+
     };
 }
 
