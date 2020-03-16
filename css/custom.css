@@ -154,3 +154,29 @@ header .head .club-select .clubs-list ul.show {
 #thanks .message-form {
     min-height: 60%;
 }
+
+body {
+    position: relative;
+}
+
+.toast {
+    position: fixed;
+    display: none;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+    padding: 16px 32px;
+    background-color: rgba(73,167,100,.9);
+    z-index: 3000;
+    border-radius: 8px;
+    border: 1px solid #49a764
+}
+
+.toast.error {
+    background-color: rgba(212,99,125,.9);
+    border-color: #d4637d;
+}
+
+.toast.show {
+    display: block;
+}

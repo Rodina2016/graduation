@@ -2,10 +2,23 @@ const sendForm = (form) => {
     const processMessage = 'Отправляется...',
         errorMessage = 'Что-то пошло не так...',
         successMessage = 'Спасибо, мы скоро свяжемся с вами!',
-        thanks = document.getElementById('thanks');
+        thanks = document.getElementById('thanks'),
+        toast = document.getElementById('toast');
+
 
     const statusMessage = document.createElement('div');
     statusMessage.classList.add('message-form');
+
+    const showToast = (text, classStyle = 'foo') => {
+        toast.textContent = text;
+        toast.classList.remove('error');
+        toast.classList.add('show');
+        if(classStyle) toast.classList.add(classStyle);
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 1500);
+    }
 
     const validForm = (form) => {
         const check = form.querySelector('[type=checkbox]');
@@ -13,7 +26,7 @@ const sendForm = (form) => {
         let count = 0;
 
         if(check && !check.checked) {
-            statusMessage.textContent = 'Необходимо принять соглашение';
+            showToast('Необходимо принять соглашение', 'error');
             return false;
         };
         if(radio.length > 0) {
@@ -22,9 +35,8 @@ const sendForm = (form) => {
                     count++
                 }
             })
-            console.log(count);
             if(!count) {
-                statusMessage.textContent = 'Необходимо выбрать клуб';
+                showToast('Необходимо выбрать клуб', 'error');
                 return false;
             }
             return true;
@@ -32,7 +44,6 @@ const sendForm = (form) => {
 
         return true;
     }
-
 
     form.addEventListener('submit', event => {
         event.preventDefault();
@@ -50,10 +61,12 @@ const sendForm = (form) => {
         postData(bodyData,
             () => {
                 if(form.closest('.popup')) {
+                    toast.classList.remove('show');
                     form.querySelector('.form-content__wrap').classList.add('hidden');
                     statusMessage.textContent = successMessage;
                     clearForm(form);
                 } else {
+                    toast.classList.remove('show');
                     statusMessage.textContent = '';
                     thanks.style.cssText = 'display: block';
                     clearForm(form);
@@ -62,10 +75,7 @@ const sendForm = (form) => {
             },
             (error) => {
                 if(form.closest('.popup')) {
-                    statusMessage.textContent = errorMessage;
-                    setTimeout(() => {
-                        statusMessage.textContent = '';
-                    }, 2000);
+                    showToast(errorMessage, 'error');
                 } else {
                     statusMessage.textContent = errorMessage;
                     thanks.querySelector('.form-content').insertBefore(statusMessage, thanks.querySelector('.form-content__wrap'));
@@ -81,8 +91,8 @@ const sendForm = (form) => {
         request.addEventListener('readystatechange', () => {
 
             if (request.readyState !== 4) {
-                statusMessage.textContent = processMessage;
-               return;
+                showToast(processMessage);
+                return;
             }
 
             if (request.status === 200) {

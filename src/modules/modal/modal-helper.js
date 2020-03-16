@@ -13,7 +13,9 @@ class modalHelper {
 
             if(target.closest('.close-form') || target.matches('.overlay') || target.matches('.btn.close-btn')) {
                 target.closest('.popup').style.cssText = '';
-                target.closest('.popup').querySelector('.form-content__wrap').classList.remove('hidden');
+                if( target.closest('.popup').querySelector('.form-content__wrap')) {
+                    target.closest('.popup').querySelector('.form-content__wrap').classList.remove('hidden');
+                }
                 if(target.closest('.popup').querySelector('.message-form')) {
                     target.closest('.popup').querySelector('.message-form').remove();
                 }
