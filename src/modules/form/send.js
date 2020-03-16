@@ -56,10 +56,6 @@ const sendForm = (form) => {
                 } else {
                     statusMessage.textContent = '';
                     thanks.style.cssText = 'display: block';
-                    // setTimeout(() => {
-                    //     statusMessage.textContent = '';
-                    // }, 2000);
-
                     clearForm(form);
                 }
 
@@ -76,7 +72,6 @@ const sendForm = (form) => {
                     thanks.querySelector('.form-content__wrap').classList.add('hidden');
                     thanks.style.cssText = 'display: block';
                 }
-                clearForm(form);
                 console.error(error);
             });
     });
