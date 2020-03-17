@@ -42,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     allInputText.forEach(item => {
-       checkText(item);
+        if(!item.classList.contains('promo-code')) {
+            checkText(item);
+        }
     });
 
     allForms.forEach(item => {

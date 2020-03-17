@@ -1,3 +1,5 @@
+import clearForm from "./clear-form";
+
 const sendForm = (form) => {
     const processMessage = 'Отправляется...',
         errorMessage = 'Что-то пошло не так...',
@@ -18,7 +20,7 @@ const sendForm = (form) => {
         setTimeout(() => {
             toast.classList.remove('show');
         }, 1500);
-    }
+    };
 
     const validForm = (form) => {
         const check = form.querySelector('[type=checkbox]');
@@ -106,18 +108,6 @@ const sendForm = (form) => {
         request.send(JSON.stringify(data));
     }
 
-    const clearForm = (form) => {
-        let allInputs =  form.querySelectorAll('input');
-        allInputs = [...allInputs];
-        allInputs = allInputs.filter((item) => {
-            return item.getAttribute('type') !== 'submit';
-        });
-
-        allInputs.forEach(item => {
-            item.checked = false;
-            item.value = '';
-        })
-    }
-}
+};
 
 export default sendForm;

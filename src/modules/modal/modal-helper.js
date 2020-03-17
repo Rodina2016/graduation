@@ -1,3 +1,5 @@
+import clearForm from '../form/clear-form';
+
 class modalHelper {
     static actionModal() {
 
@@ -21,13 +23,13 @@ class modalHelper {
                 }
 
                 if(target.closest('.popup').querySelector('.message-form')) {
-                    //target.closest('.popup').querySelector('.form-content__wrap').style.display = 'block';
                     target.closest('.popup').querySelector('.message-form').remove();
                 }
+                clearForm(target.closest('.popup').querySelector('form'));
             }
 
         });
     };
-}
+};
 
 export default modalHelper;
