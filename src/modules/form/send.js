@@ -1,4 +1,5 @@
 import clearForm from "./clear-form";
+import Calc from '../calc/calc';
 
 const sendForm = (form) => {
     const processMessage = 'Отправляется...',
@@ -7,7 +8,7 @@ const sendForm = (form) => {
         thanks = document.getElementById('thanks'),
         toast = document.getElementById('toast');
 
-
+    const calc = new Calc();
     const statusMessage = document.createElement('div');
     statusMessage.classList.add('message-form');
 
@@ -72,6 +73,9 @@ const sendForm = (form) => {
                     statusMessage.textContent = '';
                     thanks.style.cssText = 'display: block';
                     clearForm(form);
+                    if(form.matches('.form-calc')) {
+                        calc.initCalc();
+                    }
                 }
 
             },

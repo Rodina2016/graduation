@@ -9,7 +9,7 @@ import SliderCarousel from "./modules/slider/slider-carousel";
 import maskPhone from "./modules/phone-mask/phone-mask";
 import checkText from "./modules/form/check-text";
 import sendForm from "./modules/form/send";
-import calc from "./modules/calc/calc";
+import Calc from "./modules/calc/calc";
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainSlider = document.querySelector('.main-slider'),
@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mobMenu.stickMenu();
     hidePresent();
     actionSubMenu();
-    calc();
+    const calc = new Calc();
+    calc.initCalc();
 
     const carousel = new SliderCarousel({
         main: ".services-slider",
